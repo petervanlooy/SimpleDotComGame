@@ -4,7 +4,6 @@ public class DotCom {
 
     private String name;
     private ArrayList<String> locationCells;
-    private int numOfHits = 0;
 
     public String getName() {
         return name;
@@ -24,15 +23,24 @@ public class DotCom {
         int index = locationCells.indexOf(userInput);
         if (index >= 0) {
             locationCells.remove(index);
-            result = locationCells.isEmpty() ? "kill" : "hit";
-//            if (locationCells.isEmpty()) {
-//                result = "kill";
-//            } else {
-//                result = "hit";
-//            }
+//            result = locationCells.isEmpty() ? "kill" : "hit";
+            if (locationCells.isEmpty()) {
+                result = "kill";
+                System.out.println("Ouch! You sunk " + name + " : ( ");
+            } else {
+                result = "hit";
+            }
         }
 
-        System.out.println(result);
+//        System.out.println(result);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "DotCom{" +
+                "name='" + name + '\'' +
+                ", locationCells=" + locationCells +
+                '}';
     }
 }
